@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JavaScript Random Number Script Generator</title>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script src="main.js"></script>
+		<link href="main.css" rel="stylesheet">
+	</head>
+	<body ng-app="randomNumberGenerator" ng-controller="MainCtrl as main">
+		<div class="container">
+			<div class="page-header">
+				<h1>JavaScript Random Number Script Generator</h1>
+			</div>
+			<form>
+				<div class="form-group">
+					<label>Min</label>
+					<input type="number" class="form-control input-lg" ng-model="data.min">
+				</div>
+				<div class="form-group">
+					<label>Max</label>
+					<input type="number" class="form-control input-lg" ng-model="data.max">
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" ng-model="data.integers">
+						Limit to integers
+					</label>
+				</div>
+			</form>
+
+			<hr />
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<pre ng-show="data.integers">
+						<h1>Math.floor(Math.random() * ({{data.max}} - {{data.min}} + 1)) + {{data.min}};</h1>
+					</pre>
+					<pre ng-show="!data.integers">
+						<h1>Math.random() * ({{data.max}} - {{data.min}}) + {{data.min}};</h1>
+					</pre>
+				</div>
+			</div>
+
+			<hr />
+			<p>See also <a href="http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range">StackOverflow</a></p>
+		</div>
+	</body>
+</html>
